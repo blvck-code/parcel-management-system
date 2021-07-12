@@ -1,6 +1,5 @@
 # Parcel Management System
-
-[![Build Status](https://app.travis-ci.com/blvck-code/parcel-management-system-backend.svg?branch=master)](https://app.travis-ci.com/blvck-code/parcel-management-system-backend)
+[![Build Status](https://app.travis-ci.com/blvck-code/parcel-management-system.svg?branch=main)](https://app.travis-ci.com/blvck-code/parcel-management-system)
 ### This is a MVP project that deals with sending and closing dispatched parcels. It consists of the basic CRUD funtionality that allows teller/admin to dispatch parcels. 
 
 ### PMS is built with:
