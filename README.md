@@ -5,13 +5,6 @@
 ### PMS is built with:
 ### 1. Angular (Frontend)
 ### 2. Flask (Backend)
-## Want to check out this project?
-
-Check out the [Parcel Management System](https://realpython.com/blog/python/token-based-authentication-with-flask/).
-
-### Hosting Platforms
-1. Frontend - Firebase
-2. Backend - Heroku
 
 ## Want to use this project?
 
