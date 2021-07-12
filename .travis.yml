@@ -1,0 +1,14 @@
+language: python
+
+python:
+  - "3.9"
+  - "3.8"
+
+service:
+  - sqlite
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - python manage.py test

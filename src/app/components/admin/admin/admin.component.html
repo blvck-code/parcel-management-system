@@ -1,0 +1,19 @@
+<div class="container-fluid mx-0 px-0">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-9 px-0 mx-0">
+      <app-nav></app-nav>
+      <div class="page-content px-4">
+        <div class="d-flex align-items-center justify-content-between">
+          <h1>Dash</h1>
+          <div>
+            <h6 *ngIf="totalRev">Total Revenue: <strong>Ksh {{totalRev}}</strong></h6>
+            <button class="btn btn-sm btn-primary" (click)="getRevenue()">total revenue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

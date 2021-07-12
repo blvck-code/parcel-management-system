@@ -1,0 +1,70 @@
+<div class="container-fluid mx-0 px-0">
+  <div class="row">
+    <div class="col-md-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-9 px-0 mx-0">
+      <div>
+        <app-nav></app-nav>
+        <div class="container">
+          <div class="row my-5">
+            <div class="col-md-7 p-3 mx-auto card">
+              <div style="width: 100%" class="d-flex py-3 align-items-center justify-content-between">
+                <h5>Parcel id: <strong>#{{parcel.id}}</strong></h5>
+                <h6>Dispatch date: <strong>{{parcel.dispatch_date | date:'fullDate'}}</strong></h6>
+              </div>
+              <div class="row">
+                <div class="col-md-6 d-flex flex-column justify-content-start">
+                  <h5>Sender details</h5>
+                  <div>
+                    <h6>Name: {{parcel.sender.full_name}}</h6>
+                    <h6>Phone: {{parcel.sender.phone}}</h6>
+                    <h6>Email: {{parcel.sender.email}}</h6>
+                    <h6>Center: {{parcel.sender.center}}</h6>
+                  </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-end">
+                  <h5>Receiver details</h5>
+                  <div>
+                    <h6>Name: {{parcel.sender.full_name}}</h6>
+                    <h6>Phone: {{parcel.sender.phone}}</h6>
+                    <h6>Email: {{parcel.sender.email}}</h6>
+                    <h6>Center: {{parcel.sender.center}}</h6>
+                  </div>
+                </div>
+                <div class="pt-5 col-md-6">
+                  <h5>Parcel: <strong>{{parcel.item}}</strong></h5>
+                  <h6>Charged fee: <strong>Ksh. {{parcel.cost}}</strong></h6>
+                  <h6>Quantity: <strong>{{ parcel.quantity }}</strong></h6>
+                  <h6>Dispatch date: <strong>{{parcel.dispatch_date | date:"fullDate"}}</strong></h6>
+                  <h6>Arrival date: <strong>{{parcel.arrival_date | date:"fullDate"}}</strong></h6>
+                  <h6>Delivered date: <strong>{{
+                    parcel.delivered_date ? (parcel.delivered_date | date:"fullDate") : ("pending")
+                    }}</strong>
+                  </h6>
+                  <h6>Parcel dispatch by: <strong>{{parcel.teller.first_name}} {{parcel.teller.last_name}}</strong></h6>
+                </div>
+                <form [formGroup]="closeDispatchForm" (submit)="onSubmit()" *ngIf="!parcel.delivered"
+                      class="col-md-6 pt-5">
+                  <div class="form-check">
+                    <input formControlName="delivered" type="checkbox" class="form-check-input">
+                    <label class="form-check-label">Close dispatch ?</label>
+                  </div>
+                  <div class="form-group">
+                    <label>Close dispatch date</label>
+                    <input formControlName="delivered_date" type="date" class="form-control">
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-primary rounded-0">Submit</button>
+                </form>
+                <div class="pt-5 col-md-6" *ngIf="parcel.delivered">
+                  <h6>Delivered: <strong>Yes</strong></h6>
+                  <h6>Delivery date: <strong>{{parcel.delivered_date | date:"fullDate"}}</strong></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

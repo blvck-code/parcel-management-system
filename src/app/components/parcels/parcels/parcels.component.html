@@ -1,0 +1,44 @@
+<app-nav></app-nav>
+<div class="container">
+  <div class="row pt-4">
+    <div class="d-flex align-items-center justify-content-between">
+      <h4 class="my-3 text-capitalize">{{category}} Parcels</h4>
+      <div class="form-group">
+        <select (change)="handleCategory($event)" class="form-control" name="" id="">
+          <option value="sent">Sent</option>
+          <option value="received">Received</option>
+        </select>
+      </div>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Item Sent</th>
+          <th>Dispatch date</th>
+          <th>Arrival date</th>
+          <th>Delivery fee</th>
+          <th>Item quantity</th>
+          <th>Delivered date</th>
+          <th>Delivered</th>
+          <th></th>
+          <th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let parcel of parcels">
+          <td>{{ parcel.item }}</td>
+          <td>{{ parcel.dispatch_date | date:"fullDate" }}</td>
+          <td>{{ parcel.arrival_date | date:"fullDate" }}</td>
+          <td>Ksh. {{ parcel.cost }}</td>
+          <td>{{ parcel.quantity }}</td>
+          <td>{{ parcel.delivered_date ? (parcel.delivered_date | date:"fullDate"):'pending' }}</td>
+          <td>{{ parcel.delivered ? 'yes': 'no' }}</td>
+          <td>
+            <a (click)="navigateParcelDetail(parcel)" class="btn btn-sm btn-secondary rounded-0" style="cursor: pointer">more</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

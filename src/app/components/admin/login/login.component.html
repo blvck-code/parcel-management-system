@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row my-5">
+    <div class="col-md-6 mx-auto my-5 col-lg-5 col-sm-12">
+      <h3 class="text-center pb-3">Admin Login Form</h3>
+      <div *ngIf="message" [class.alert-danger]="messageStatus !== 200" class="alert">{{ message }}</div>
+      <form [formGroup]="loginForm" (submit)="onSubmit()" class="card p-3">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input [class.is-invalid]="getEmail?.invalid && getEmail?.touched" formControlName="email" type="email" class="form-control rounded-0" id="email">
+          <div *ngIf="getEmail?.invalid && getEmail?.touched">
+            <small
+              *ngIf="getEmail?.errors?.required"
+              class="text-danger"
+              >Email address is required</small
+            >
+            <small
+              *ngIf="getEmail?.errors?.email"
+              class="text-danger"
+              >Enter a valid email address</small
+            >
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input [class.is-invalid]="getPass?.invalid && getPass?.touched" formControlName="password" type="password" class="form-control rounded-0" id="password">
+          <div *ngIf="getPass?.invalid && getPass?.touched">
+            <small class="text-danger">Password is required</small>
+          </div>
+        </div>
+        <button type="submit" class="btn rounded-0 btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6 mx-auto my-5 col-lg-5 col-sm-12 card">
+      <h6>Credentials</h6>
+      <p>Email: <strong>admin@gmail.com</strong></p>
+      <p>Password: <strong>password</strong></p>
+    </div>
+</div>

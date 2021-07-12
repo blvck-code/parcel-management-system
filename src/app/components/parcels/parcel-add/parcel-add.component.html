@@ -1,0 +1,122 @@
+<app-nav></app-nav>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-7 mx-auto">
+      <div *ngIf="message" [class.alert-success]="messageStatus === 200"  [class.alert-danger]="messageStatus !== 200" class="alert alert-danger text-center">
+        {{message}}
+      </div>
+    </div>
+    <div class="col-md-7 mx-auto card">
+      <!--      Add sender details -->
+      <div>
+        <div *ngIf="addSenderMode">
+          <h3 class="py-3 text-center">Add Sender Info (Step 1)</h3>
+          <form class="card-body" [formGroup]="senderForm" (submit)="onSubmitCustomer()">
+            <div class="d-flex">
+              <div style="width: 100%" class="form-group mr-1">
+                <label>Sender full name</label>
+                <input formControlName="full_name" type="text" class="form-control form-control-sm rounded-0"
+                       aria-describedby="emailHelp">
+              </div>
+              <div style="width: 100%" class="form-group ml-1">
+                <label>Sender phone</label>
+                <input formControlName="phone" type="text" class="form-control form-control-sm rounded-0">
+              </div>
+            </div>
+            <div class="d-flex">
+              <div style="width: 100%" class="form-group mr-1">
+                <label>Sender email</label>
+                <input formControlName="email" type="email" class="form-control form-control-sm rounded-0"
+                       aria-describedby="emailHelp">
+              </div>
+              <div style="width: 100%" class="form-group ml-1">
+                <label>Dispatch center</label>
+                <input formControlName="center" type="text" class="form-control form-control-sm rounded-0">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary rounded-0 btn-block">Submit</button>
+          </form>
+        </div>
+        <!--      Add receiver details -->
+        <div *ngIf="addReceiverMode">
+          <h3 class="py-3 text-center">Add Receiver Info (Step 2)</h3>
+          <form [formGroup]="receiverForm" (submit)="onSubmitReceiver()" class="card-body">
+            <div class="d-flex">
+              <div style="width: 100%" class="form-group mr-1">
+                <label>Receiver full name</label>
+                <input formControlName="full_name" type="text" class="form-control form-control-sm rounded-0"
+                       aria-describedby="emailHelp">
+              </div>
+              <div style="width: 100%" class="form-group ml-1">
+                <label>Receiver phone</label>
+                <input formControlName="phone" type="text" class="form-control form-control-sm rounded-0">
+              </div>
+            </div>
+            <div class="d-flex">
+              <div style="width: 100%" class="form-group mr-1">
+                <label>Receiver email</label>
+                <input formControlName="email" type="email" class="form-control form-control-sm rounded-0"
+                       aria-describedby="emailHelp">
+              </div>
+              <div style="width: 100%" class="form-group ml-1">
+                <label>Delivery center</label>
+                <input formControlName="center" type="text" class="form-control form-control-sm rounded-0">
+              </div>
+            </div>
+            <div class="footer d-flex align-items-center justify-content-between">
+              <a (click)="proceedToSenderForm()" style="cursor: pointer; text-decoration: underline">back to sender
+                details</a>
+              <button type="submit" class="btn btn-sm btn-primary rounded-0">Submit</button>
+            </div>
+          </form>
+        </div>
+        <!--      add parcel details -->
+        <div *ngIf="addParcelMode">
+          <h3 class="py-3 text-center">Add Parcel Details (Final step)</h3>
+          <form [formGroup]="parcelForm" (submit)="onSubmitParcel()" class="card-body">
+            <div class="form-group mr-1">
+              <label>Parcel name *</label>
+              <input formControlName="item" type="text" class="form-control form-control-sm rounded-0"
+                     aria-describedby="emailHelp">
+            </div>
+            <div class="d-flex">
+              <div style="width: 100%" class="form-group mr-1">
+                <label>Parcel charge value *</label>
+                <input formControlName="cost" type="text" class="form-control form-control-sm rounded-0">
+              </div>
+              <div style="width: 100%" class="form-group ml-1">
+                <label>Parcel quantity *</label>
+                <input formControlName="quantity" type="text" class="form-control form-control-sm rounded-0"
+                       aria-describedby="emailHelp">
+              </div>
+            </div>
+            <div class="d-flex">
+              <div style="width: 100%" class="form-group mr-1">
+                <label>Dispatch date *</label>
+                <input formControlName="dispatch_date" type="date" class="form-control form-control-sm rounded-0">
+              </div>
+              <div style="width: 100%" class="form-group ml-1">
+                <label>Arrival date *</label>
+                <input formControlName="arrival_date" type="date" class="form-control form-control-sm rounded-0"
+                       aria-describedby="emailHelp">
+              </div>
+            </div>
+            <div style="width: 100%" class="form-group ml-1">
+              <label>Note</label>
+              <textarea formControlName="note" class="form-control form-control-sm rounded-0" cols="30"
+                        rows="4"></textarea>
+              <small>Optional field</small>
+            </div>
+            <div class="footer d-flex align-items-center justify-content-between">
+              <a (click)="proceedToReceiverForm()" style="cursor: pointer; text-decoration: underline">back to receiver
+                details</a>
+              <button type="submit" [class.disabled]="parcelForm.invalid" class="btn btn-sm btn-primary rounded-0">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

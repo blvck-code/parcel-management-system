@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/parcel']">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link btn-primary btn-sm btn rounded-0" [routerLink]="['/parcel/add']">
+            Dispatch parcel
+          </a>
+        </li>
+        <li class="nav-item">
+          <a style="cursor: pointer" class="nav-link ml-2" (click)="logout()">
+            Logout <i class="fa fa-sign-out"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
