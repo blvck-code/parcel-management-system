@@ -13,6 +13,7 @@
 
 1. Fork/Clone
 1. npm init
+1. npm install -g @angular/cli
 
 ### Run the Application
 
